@@ -1,0 +1,73 @@
+// We are given two nodes (items or brands)
+Node1, Node2
+
+// This type is a rating for both nodes in a link; r1, r2 \in {1,2,3,4,5}
+type rating = int*int
+
+// This is the set of all differences of ratings between Node1 and Node2. 
+// For example, if a user rates Node1 as a 1 and Node2 as a 3, then 2 (or -2, depending on orientation) will be added to this set.
+type differences = int list
+
+// Mean of all points in differences
+type m = float
+
+// Standard Deviation of all points in differences 
+type s = float
+
+// Size of differences
+type n = int
+
+// Confidence, which will be determined via machine learning function
+type c = float
+
+// List of predictions given to users in the past
+type predicted = (int*user) list
+
+// List of ratings that the same users supplied after purchasing
+type purchased = (int*user) list
+
+// This type represents a pair of *items* when confidence is being calculated for real links, and a pair of *brands* when confidence is being calculated for virtual links
+type link = (m,s,n,c,predicted,purchased)
+
+// Given two variables relating to the same pair:
+Let x be of type link
+Let r be of type rating
+
+// Updating x given r:
+// Calculate new m
+SITANNNNNNNNNNNN CHENNNNNNNNN
+
+// Calculate new s
+SITANNNNNNNNNNNN CHENNNNNNNNN
+
+// Increment n
+Let inc (n_0 : n) : n = n_1 + 1
+
+// Update c
+// This function gives a new confidence. It is the one which will be modified with higher order functions; k_1 is a constant float which will be modified.
+Let f  (n_0 : n) (s_0 : s) : c= 
+k_1 * log(n_0 / s_0)
+
+// Update predicted
+Add this user and prediction to the predicted list
+
+// purchased will be updated after user rates
+
+// Learning the confidence function f by comparing predictions to user responses. This higher order function will be executed every time purchased is updated.
+
+// First, calculate the actual confidence. 
+Let count = 0
+Let correct_count = 0
+For each pur_pair in purchased:
+	let x1 = the int component of pur_pair
+	let x2 = the int component of corresponding pre_pair in predicted
+	if x1 = x2 then correct_count++
+	count++
+actual_confidence = correct_count / count
+
+// Now compose a set of actual values, which we will train f to fit
+actual_values = (n, log(s/c)) list
+
+Open scikit-learn package
+use sklearn.linear_model.LinearRegression for n, log(s/c)
+return k_1
