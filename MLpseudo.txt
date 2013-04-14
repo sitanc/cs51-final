@@ -73,7 +73,7 @@ use sklearn.linear_model.LinearRegression for n, log(s/c)
 return k_1
 
 
-# Dijkstra's: returns shortest path between start and end in graph:
+# Dijkstra's algorithm: returns shortest path between start and end in graph:
 def Dijkstra's(G, start, end):
 	dist = {start : 0}
 	prev = {}
